@@ -9,12 +9,10 @@ import seaborn as sns
 import dagshub
 dagshub.init(repo_owner='satyamsrj', repo_name='MLflow-Experiments', mlflow=True)
 mlflow.set_tracking_uri("https://dagshub.com/satyamsrj/MLflow-Experiments.mlflow")
-with mlflow.start_run():
-  mlflow.log_param('parameter name', 'value')
-  mlflow.log_metric('metric name', 1)
 
-mlflow.set_experiment("wine-classification")
 
+mlflow.set_experiment("MLOPS_Exp1")
+mlflow.autolog()
 
 #load wine dataset
 wine = load_wine()
@@ -33,9 +31,7 @@ with mlflow.start_run():
     y_pred = rf.predict(x_test)
     accuracy = accuracy_score(y_test,y_pred)
 
-    mlflow.log_metric('accuracy',accuracy)
-    mlflow.log_param('max_depth',max_depth)
-    mlflow.log_param('n_estimators',n_estimators)
+
 
     #creating a confusion matrix 
     cm = confusion_matrix(y_test,y_pred)
@@ -46,9 +42,9 @@ with mlflow.start_run():
     plt.title('Confusion Matrix')
     plt.savefig('Confusion-matrix.png')
     
-    mlflow.log_artifact('Confusion-matrix.png')
+
     mlflow.log_artifact(__file__)
-    
+    mlflow.set_tags({"AUthor":"Satyam","Project":"Wine classification Experiment"})
 
     print((accuracy))
 
