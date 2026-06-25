@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# MLflow
+mlruns/
+mlflow.db
+*.log
+
+# Data & models
+data/
+datasets/
+models/
+artifacts/
+*.h5
+*.pt
+*.onnx
+
+# Reports & plots
+*.png
+*.jpg
+*.jpeg
+*.pdf
+report/
+
+# IDE/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+*.json
